@@ -10,7 +10,8 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @Entity com.yupi.memespace.model.entity.User
 */
 public interface UserMapper extends BaseMapper<User> {
-
+    /**BaseMapper 是 MyBatis-Plus 提供的一个通用接口，
+     * 它已经包含了常见的数据库操作方法（如插入、删除、更新、查询等）。*/
 }
 
 

@@ -35,6 +35,7 @@ public class PictureQueryRequest extends PageRequest implements Serializable {
     /**
      * 标签
      */
+    //数据库中JSON类型本质是字符串，所以这里用List<String>接收
     private List<String> tags;
 
     /**

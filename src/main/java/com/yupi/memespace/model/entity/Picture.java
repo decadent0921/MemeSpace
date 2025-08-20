@@ -73,7 +73,8 @@ public class Picture implements Serializable {
     /**
      * 标签（JSON 数组）
      */
-    private String tags;//因为MySQL的JSON类型本质是特殊字符串
+    //MySQL将JSON（一种格式）定义成了一个数据类型，Java还没有，所以还像以前一样，使用String接收。
+    private String tags;//
 
     /**
      * 分类
