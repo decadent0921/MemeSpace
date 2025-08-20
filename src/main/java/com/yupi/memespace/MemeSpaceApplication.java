@@ -15,17 +15,6 @@ import java.sql.SQLOutput;
 public class MemeSpaceApplication {
 
     public static void main(String[] args) {
-                String[] crc = {
-                        "  ____    _____     ____",
-                        " / ___|  |  __ \\  / ___|",
-                        "| |      | |__| | | |",
-                        "| |____  |  __ / | |___",
-                        " \\____|  |_| \\_\\  \\_____|"
-                };
-
-                for (String line : crc) {
-                    System.out.println(line);
-                }
 
         SpringApplication.run(MemeSpaceApplication.class, args);
     }
