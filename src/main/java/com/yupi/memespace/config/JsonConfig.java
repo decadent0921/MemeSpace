@@ -24,8 +24,8 @@ public class JsonConfig {
     public ObjectMapper jacksonObjectMapper(Jackson2ObjectMapperBuilder builder) {
         ObjectMapper objectMapper = builder.createXmlMapper(false).build();
         SimpleModule module = new SimpleModule();
-        module.addSerializer(Long.class, ToStringSerializer.instance);
-        module.addSerializer(Long.TYPE, ToStringSerializer.instance);
+        module.addSerializer(Long.class, ToStringSerializer.instance);//包装类Long转换为字符串
+        module.addSerializer(Long.TYPE, ToStringSerializer.instance);//基本数据类型long转换为字符串
         objectMapper.registerModule(module);
         return objectMapper;
     }

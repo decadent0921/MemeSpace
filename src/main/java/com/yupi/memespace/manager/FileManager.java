@@ -41,7 +41,6 @@ public class FileManager {
      * @param uploadPathPrefix 上传路径前缀
      * @return
      */
-    //MultipartFile是 Spring 提供的文件上传接口。
     public UploadPictureResult uploadPicture(MultipartFile multipartFile, String uploadPathPrefix) {
         //1、校验图片
         validPicture(multipartFile);//因为用的比较多，所以单独写一个方法

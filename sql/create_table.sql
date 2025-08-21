@@ -54,3 +54,17 @@ create table if not exists picture
     INDEX idx_userId (userId)              -- 提升基于用户 ID 的查询性能
 ) comment '图片' collate = utf8mb4_unicode_ci;
 
+#修改图片表，添加审核字段
+ALTER TABLE picture
+    -- 添加新列
+    #不是用字符串，可以节约表؜的空间
+    ADD COLUMN reviewStatus INT DEFAULT 0 NOT NULL COMMENT '审核状态：0-待审核; 1-通过; 2-拒绝',
+    ADD COLUMN reviewMessage VARCHAR(512) NULL COMMENT '审核信息',
+    ADD COLUMN reviewerId BIGINT NULL COMMENT '审核人 ID',
+    ADD COLUMN reviewTime DATETIME NULL COMMENT '审核时间';
+
+-- 创建基于 reviewStatus 列的索引
+#根据审核状态筛选图片，所以添加索引
+CREATE INDEX idx_reviewStatus ON picture (reviewStatus);
+
+

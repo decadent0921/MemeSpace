@@ -24,7 +24,7 @@ public class CosManager {
     @Resource  
     private COSClient cosClient;
 
-    //上传文件，根据开发文档来写的
+    //上传文件，根据开发文档来写的(练手)
     public PutObjectResult putObject(String key, File file) {
 
         PutObjectRequest putObjectRequest = new PutObjectRequest(cosClientConfig.getBucket(), key,

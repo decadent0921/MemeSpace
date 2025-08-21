@@ -10,8 +10,7 @@ import lombok.Getter;
 public enum ErrorCode {
     /**设置状态码的原因和响应状态码原因一样，一是机器可读性更高，二是可以分类。
      * 分类参考了主流的HTTP响应状态码，4xx是客户端错误，5xx是服务器错误
-     * 五位数是为了以后扩展（细化）报错信息
-     */
+     * 五位数是为了以后扩展（细化）报错信息*/
     SUCCESS(0, "ok"),
     PARAMS_ERROR(40000, "请求参数错误"),
     NOT_LOGIN_ERROR(40100, "未登录"),
