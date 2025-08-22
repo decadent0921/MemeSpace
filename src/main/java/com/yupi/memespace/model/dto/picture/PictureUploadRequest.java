@@ -13,7 +13,9 @@ public class PictureUploadRequest implements Serializable {
      * 而现在这个dto就是上传功能的第一步业务，仅上传。
      */
 
-    private Long id;  
-  
-    private static final long serialVersionUID = 1L;  
+    private Long id;
+
+    private String fileUrl;
+
+    private static final long serialVersionUID = 1L;
 }

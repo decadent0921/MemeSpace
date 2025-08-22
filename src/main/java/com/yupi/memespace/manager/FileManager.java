@@ -29,10 +29,12 @@ import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
+//已废弃，改用upload包的模板方法优化
 
 //通用文件上传服务，放到service也可以
 @Service//偏业务，使用使用@Service
 @Slf4j
+@Deprecated
 public class FileManager {  
   
     @Resource
@@ -172,7 +174,7 @@ public class FileManager {
 
         try {
             // 1. 验证 URL 格式
-            new URL(fileUrl); // 验证是否是合法的 URL
+            new URL(fileUrl); // 将一个URL地址解析成一个URL对象
         } catch (MalformedURLException e) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "文件地址格式不正确");
         }

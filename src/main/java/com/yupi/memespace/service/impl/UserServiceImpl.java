@@ -162,7 +162,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
                 .collect(Collectors.toList());//收集流中的数据放到集合中，返回一个集合，另外Collector是Stream流的一个工具类
     }
 
-    //获取登录用户，前面登录是存储在session中的，这里从session中获取
+    //获取登录用户，算是一种“校验”
     @Override
     public User getLoginUser(HttpServletRequest request) {
 
