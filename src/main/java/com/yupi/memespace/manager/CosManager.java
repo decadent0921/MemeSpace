@@ -1,6 +1,7 @@
 //manager包一般指可以复用的代码，不仅仅在这个项目中可以使用，还可以作用到其他地方
 package com.yupi.memespace.manager;
 
+import cn.hutool.core.io.FileUtil;
 import com.qcloud.cos.COSClient;
 import com.qcloud.cos.model.COSObject;
 import com.qcloud.cos.model.GetObjectRequest;
@@ -12,6 +13,8 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 
 //通用的对象存储操作，比如文件上传、文件下载等
@@ -47,7 +50,7 @@ public class CosManager {
 
     /**
      * 上传对象（附带图片信息）
-     *
+     *  优化：在上传文件时，传入 Rules 规则。
      * @param key  唯一键
      * @param file 文件
      */
@@ -58,10 +61,20 @@ public class CosManager {
         PicOperations picOperations = new PicOperations();
         // 1 表示返回原图信息
         picOperations.setIsPicInfo(1);
+        List<PicOperations.Rule> rules = new ArrayList<>();
+        // 图片压缩（转成 webp 格式）
+        String webpKey = FileUtil.mainName(key) + ".webp";
+        PicOperations.Rule compressRule = new PicOperations.Rule();
+        compressRule.setRule("imageMogr2/format/webp");
+        compressRule.setBucket(cosClientConfig.getBucket());
+        compressRule.setFileId(webpKey);
+        rules.add(compressRule);
         // 构造处理参数
+        picOperations.setRules(rules);
         putObjectRequest.setPicOperations(picOperations);
         return cosClient.putObject(putObjectRequest);
     }
+
 
 
 

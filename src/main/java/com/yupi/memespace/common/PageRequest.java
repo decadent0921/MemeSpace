@@ -11,7 +11,7 @@ import lombok.Data;
 public class PageRequest {
 
     //当前页号
-    private int current = 1;
+    private int current = 1;//默认值，如果前端传过来的页码为空，则默认为1
 
     //页面大小
     private int pageSize = 10;

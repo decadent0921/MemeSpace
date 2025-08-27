@@ -20,18 +20,19 @@ public class CosClientConfig {
     /**  
      * 域名  
      */  
-    private String host;  
+    private String host;
   
     /**  
      * secretId  
      */  
-    private String secretId;  
-  
+    private String secretId;
+
+
     /**  
      * 密钥（注意不要泄露）  
      */  
-    private String secretKey;  
-  
+    private String secretKey;
+
     /**  
      * 区域  
      */  
