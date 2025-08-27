@@ -50,6 +50,9 @@ public interface PictureService extends IService<Picture> {
             User loginUser
     );
 
+    //删除图片(优化点：异步线程去删除)
+    void clearPictureFile(Picture oldPicture);
+
 
 
 }

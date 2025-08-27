@@ -3,6 +3,10 @@ server:
   servlet:
     #上下文路径
     context-path: /api
+    # cookie 30 天过期
+    session:
+      cookie:
+        max-age: 2592000
 spring:
   #Redis配置
   redis:
@@ -20,6 +24,12 @@ spring:
     username: root
     #密码
     password: 123456
+  #之前session存储在服务器中，现在改为redis
+  session:
+    # session存储类型
+    store-type: redis
+    # session 30 天过期
+    timeout: 2592000
   # 开放更大的文件上传体积(默认1M，防止外来恶意攻击)
   servlet:
     multipart:
