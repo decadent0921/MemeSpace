@@ -117,7 +117,9 @@ public abstract class PictureUploadTemplate {
         return uploadPictureResult;  
     }
 
-    // 封装返回结果，方法重写
+    /**
+     * 封装返回结果（方法重写）
+     */
     private UploadPictureResult buildResult(String originFilename, CIObject compressedCiObject,CIObject thumbnailCiObject) {
         UploadPictureResult uploadPictureResult = new UploadPictureResult();
         int picWidth = compressedCiObject.getWidth();

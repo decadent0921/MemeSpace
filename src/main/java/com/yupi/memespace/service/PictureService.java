@@ -2,10 +2,7 @@ package com.yupi.memespace.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.yupi.memespace.model.dto.picture.PictureQueryRequest;
-import com.yupi.memespace.model.dto.picture.PictureReviewRequest;
-import com.yupi.memespace.model.dto.picture.PictureUploadByBatchRequest;
-import com.yupi.memespace.model.dto.picture.PictureUploadRequest;
+import com.yupi.memespace.model.dto.picture.*;
 import com.yupi.memespace.model.entity.Picture;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.yupi.memespace.model.entity.User;
@@ -26,6 +23,9 @@ public interface PictureService extends IService<Picture> {
                             PictureUploadRequest pictureUploadRequest,
                             User loginUser);
 
+    // 删除图片
+    void deletePicture(long pictureId, User loginUser);
+
     //获取查询对象
     QueryWrapper<Picture> getQueryWrapper(PictureQueryRequest pictureQueryRequest);
 
@@ -37,6 +37,9 @@ public interface PictureService extends IService<Picture> {
 
     //数据校验
     void validPicture(Picture picture);
+
+    //编辑图片
+    void editPicture(PictureEditRequest pictureEditRequest, User loginUser);
 
     //图片审核
     void doPictureReview(PictureReviewRequest pictureReviewRequest, User loginUser);
@@ -53,6 +56,7 @@ public interface PictureService extends IService<Picture> {
     //删除图片(优化点：异步线程去删除)
     void clearPictureFile(Picture oldPicture);
 
-
+    //空间权限校验
+    void checkPictureAuth(User loginUser, Picture picture);
 
 }

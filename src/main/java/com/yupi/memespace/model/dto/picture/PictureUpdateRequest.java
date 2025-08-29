@@ -34,6 +34,7 @@ public class PictureUpdateRequest implements Serializable {
     //数据库中JSON类型本质是字符串，所以这里用List<String>接收
     private List<String> tags;
 
+
     private static final long serialVersionUID = 1L;
 }
 
