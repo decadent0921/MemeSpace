@@ -10,6 +10,7 @@ import com.yupi.memespace.model.vo.PictureVO;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
 * @author www
@@ -58,5 +59,11 @@ public interface PictureService extends IService<Picture> {
 
     //空间权限校验
     void checkPictureAuth(User loginUser, Picture picture);
+
+    //根据图片颜色在空间中搜索图片
+    List<PictureVO> searchPictureByColor(Long spaceId, String picColor, User loginUser);
+
+    //批量编辑图片（编辑分类和标签）
+    void editPictureByBatch(PictureEditByBatchRequest pictureEditByBatchRequest, User loginUser);
 
 }
