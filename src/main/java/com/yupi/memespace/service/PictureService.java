@@ -2,6 +2,7 @@ package com.yupi.memespace.service;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.yupi.memespace.api.aliyunai.model.CreateOutPaintingTaskResponse;
 import com.yupi.memespace.model.dto.picture.*;
 import com.yupi.memespace.model.entity.Picture;
 import com.baomidou.mybatisplus.extension.service.IService;
@@ -65,5 +66,8 @@ public interface PictureService extends IService<Picture> {
 
     //批量编辑图片（编辑分类和标签）
     void editPictureByBatch(PictureEditByBatchRequest pictureEditByBatchRequest, User loginUser);
+
+    //创建AI扩图任务
+    CreateOutPaintingTaskResponse createPictureOutPaintingTask(CreatePictureOutPaintingTaskRequest createPictureOutPaintingTaskRequest, User loginUser);
 
 }
